@@ -8,7 +8,7 @@
 
 body {
     height: 100vh;
-    background-color: #001;
+    background-color: #123;
 }
 
 a {
@@ -24,14 +24,11 @@ a {
     transition: all .3s ease-in-out;
 }
 
-.sidebar:hover {
-    width: 10%;
-}
-
-.sidebar:hover span {
-    display: inline-block;
 
 
+.sidebar_button button {
+    color: #fff;
+    margin: 10px;
 }
 
 .sidebar li:hover {
