@@ -1,4 +1,4 @@
-import styles from "../../../cssModules/sidebar.module.css";
+import styles from "../../cssModules/sidebar.module.css";
 import { FaBars } from "react-icons/fa";
 import { useRef, useState } from "react";
 

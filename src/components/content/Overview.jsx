@@ -1,11 +1,5 @@
-import Sidebar from "./sidebar/Sidebar";
-
-const overview = () => {
-	return (
-		<>
-			<Sidebar></Sidebar>
-		</>
-	);
+const Overview = () => {
+	return <div></div>;
 };
 
-export default overview;
+export default Overview;
