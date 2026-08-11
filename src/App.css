@@ -10,6 +10,11 @@ body {
     flex-direction: row;
 }
 
+.page-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
 
 ul {
     list-style: none;
