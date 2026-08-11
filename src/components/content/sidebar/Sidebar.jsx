@@ -1,5 +1,4 @@
-// Sidebar.jsx
-import styles from "../../../cssModules/sidebar.module.css"; // استيراد الـ CSS Module
+import styles from "../../../cssModules/sidebar.module.css";
 import { FaBars } from "react-icons/fa";
 import { useRef, useState } from "react";
 
@@ -23,7 +22,7 @@ const Sidebar = () => {
 		if (sidebarRef.current) {
 			toggelWidth();
 			if (active) {
-				sidebarRef.current.style.width = "220px";
+				sidebarRef.current.style.width = "200px";
 				hidenSpanHandel("inline-block");
 				console.log("avtive is true");
 			} else {
