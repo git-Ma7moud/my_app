@@ -43,6 +43,7 @@ a {
 
 .sidebar_ul {
     height: 100vh;
+    width: 100%;
     display: flex;
     flex-direction: column;
     list-style: none;
@@ -57,7 +58,7 @@ a {
     padding: 5px;
 }
 
-.log-out {
+.logout {
     position: absolute;
     bottom: 20px;
 }

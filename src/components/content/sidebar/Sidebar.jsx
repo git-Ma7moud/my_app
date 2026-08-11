@@ -8,14 +8,27 @@ const Sidebar = () => {
 	const toggelWidth = () => {
 		setActive((prev) => !prev);
 	};
+	const hidenSpanHandel = (state) => {
+		if (sidebarRef.current) {
+			const span = sidebarRef.current.querySelectorAll("ul li span");
+
+			span.forEach((element) => {
+				if (element) {
+					element.style.display = state;
+				}
+			});
+		}
+	};
 	const handelClick = () => {
 		if (sidebarRef.current) {
 			toggelWidth();
 			if (active) {
-				sidebarRef.current.style.width = "180px";
+				sidebarRef.current.style.width = "220px";
+				hidenSpanHandel("inline-block");
 				console.log("avtive is true");
 			} else {
 				sidebarRef.current.style.width = "60px";
+				hidenSpanHandel("none");
 				console.log("active is false");
 			}
 		}
@@ -45,28 +58,11 @@ const Sidebar = () => {
 						<span>home</span>
 					</a>
 				</li>
-				<li className={styles.clients}>
-					<a href='#clients-page'>
-						<i className='fa fa-users'></i>
-						<span>clients</span>
-					</a>
-				</li>
-				<li className={styles.products}>
-					<a href='#products-page'>
-						<i className='fa fa-shopping-cart'></i>
-						<span>products</span>
-					</a>
-				</li>
-				<li className={styles.charts}>
-					<a href='#charts-page'>
-						<i className='fa fa-chart-pie'></i>
-						<span>charts</span>
-					</a>
-				</li>
+
 				<li className={styles.posts}>
 					<a href='#posts-page'>
 						<i className='fa fa-file-alt'></i>
-						<span>posts</span>
+						<span>tasks</span>
 					</a>
 				</li>
 				<li className={styles.favourite}>
