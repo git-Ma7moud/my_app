@@ -28,7 +28,6 @@ a {
 
 .sidebar_button button {
     color: #fff;
-    margin: 10px;
 }
 
 .sidebar li:hover {
@@ -51,6 +50,7 @@ a {
     font-size: 25px;
     position: relative;
     align-items: center;
+    padding: 10px;
 }
 
 .sidebar span {
