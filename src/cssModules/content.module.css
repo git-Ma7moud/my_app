@@ -6,3 +6,7 @@
     color: aqua;
     padding: 10px;
 }
+
+.content_container form input {
+    font-size: 1.6rem;
+}
