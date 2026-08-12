@@ -6,11 +6,11 @@ import Content from "./components/content/Content";
 const App = () => {
 	return (
 		<div className='container'>
+			<Sidebar></Sidebar>
 			<div className='page-container'>
 				<Header></Header>
 				<Content></Content>
 			</div>
-			<Sidebar></Sidebar>
 		</div>
 	);
 };
