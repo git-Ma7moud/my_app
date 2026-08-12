@@ -22,7 +22,7 @@ const Sidebar = () => {
 		if (sidebarRef.current) {
 			toggelWidth();
 			if (active) {
-				sidebarRef.current.style.width = "210px";
+				sidebarRef.current.style.width = "200px";
 				hidenSpanHandel("inline-block");
 				console.log("avtive is true");
 			} else {

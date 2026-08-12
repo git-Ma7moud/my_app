@@ -32,14 +32,11 @@ a {
 
 .sidebar li:hover {
     background-color: rgb(42, 66, 89);
-    padding-top: 10px;
     max-width: fit-content;
     border-radius: 8px;
 }
 
-.logout:hover {
-    padding-bottom: 10px;
-}
+
 
 .sidebar_ul {
     height: 100vh;
