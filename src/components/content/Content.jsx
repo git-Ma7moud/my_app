@@ -1,26 +1,47 @@
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import styles from "../../cssModules/content.module.css";
 const Content = () => {
-	const inputRef = useRef(null);
+	const reatchDel = () => {
+		const del = document.querySelectorAll(".del");
+		del.forEach((e) => {
+			e.onclick = function () {
+				e.parentElement.remove();
+				localStorage.clear();
+				localStorage.setItem("tasks", taskContainerRef.current.innerHTML);
+			};
+		});
+	};
+
 	const taskContainerRef = useRef(null);
+	const inputRef = useRef(null);
+
+	useEffect(() => {
+		if (localStorage.getItem("tasks")) {
+			taskContainerRef.current.innerHTML = localStorage.getItem("tasks");
+			reatchDel();
+		}
+	}, []);
+
 	const subButton = (e) => {
 		e.preventDefault();
 		if (inputRef.current.value) {
 			const cliked = document.createElement("div");
-			cliked.className = styles.cliked;
+			cliked.className = "cliked";
 			cliked.innerHTML = inputRef.current.value;
 
 			const del = document.createElement("button");
-			del.className = styles.del;
+			del.className = "del";
 			del.innerText = "del";
 			del.onclick = function (e) {
 				e.preventDefault();
 				del.parentElement.remove();
+				localStorage.clear();
+				localStorage.setItem("tasks", taskContainerRef.current.innerHTML);
 			};
 
 			cliked.appendChild(del);
 			taskContainerRef.current.appendChild(cliked);
-			// localStorage.setItem("a", taskContainerRef.current.innerHTML);
+			localStorage.setItem("tasks", taskContainerRef.current.innerHTML);
 			inputRef.current.value = "";
 		}
 	};
