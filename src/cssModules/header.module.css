@@ -13,7 +13,7 @@
 
 .icon {
     color: #fff;
-    font-size: 20px;
+    font-size: 23px;
 
 }
 
@@ -28,8 +28,8 @@
     display: flex;
     height: fit-content;
     width: fit-content;
-    gap: 5px;
-    margin: 10px;
+    margin-bottom: 10px;
+    align-items: center;
 }
 
 .sidebar_button {
