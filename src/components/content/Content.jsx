@@ -26,8 +26,9 @@ const Content = () => {
 		e.preventDefault();
 		if (inputRef.current.value) {
 			const cliked = document.createElement("div");
-			cliked.className = "cliked";
-			cliked.innerHTML = inputRef.current.value;
+			cliked.className = styles.cliked;
+			const text = document.createElement("span");
+			text.innerHTML = inputRef.current.value;
 
 			const del = document.createElement("button");
 			del.className = "del";
@@ -39,6 +40,7 @@ const Content = () => {
 				localStorage.setItem("tasks", taskContainerRef.current.innerHTML);
 			};
 
+			cliked.appendChild(text);
 			cliked.appendChild(del);
 			taskContainerRef.current.appendChild(cliked);
 			localStorage.setItem("tasks", taskContainerRef.current.innerHTML);
