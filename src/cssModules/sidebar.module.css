@@ -22,7 +22,8 @@ a {
     background-color: #123;
     padding: 10px;
     transition: all .3s ease-in-out;
-    position: fixed;
+    position: static;
+    top: 0;
 }
 
 
