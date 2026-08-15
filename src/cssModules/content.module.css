@@ -9,7 +9,7 @@
     width: 100%;
     border-radius: 20px;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     background-color: rgb(234, 234, 234);
     align-items: center;
     font-size: 25px;
