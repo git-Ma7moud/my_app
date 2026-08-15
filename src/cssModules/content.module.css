@@ -5,6 +5,7 @@
 
 
 .content_container {
+    margin: 10px;
     height: 100%;
     width: 100%;
     border-radius: 20px;
@@ -39,11 +40,12 @@ input {
 
 
 .cliked {
-    width: 75%;
+    width: 100%;
     display: flex;
     justify-content: space-between;
-    border: solid 2px #dd0000;
     align-items: center;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 form {
@@ -62,7 +64,7 @@ form {
 }
 
 .tasks_container {
-    background-color: aqua;
+    background-color: rgb(253, 220, 176);
     width: 100%;
     flex-direction: column;
     align-items: center;
