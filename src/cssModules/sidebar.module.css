@@ -1,3 +1,4 @@
+/* ===== sidebar.module.css ===== */
 * {
     padding: 0;
     margin: 0;
@@ -6,61 +7,109 @@
     box-sizing: border-box;
 }
 
-
-a {
-    text-decoration: none;
-    color: #fff;
-}
-
+/* الحاوية الأساسية - بقيت جامدة ومتحركة */
 .sidebar {
     width: 60px;
     height: 100vh;
-    background-color: #993300;
-    padding: 10px;
-    transition: all .3s ease-in-out;
-    top: 0;
+    background: linear-gradient(180deg, #2c1810 0%, #4a2c20 100%);
+    /* تدرج أنيق بدل اللون المسطح */
+    padding: 10px 0;
+    transition: width 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    /* حركة انسيابية احترافية */
     position: sticky;
+    top: 0;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 4px 0 15px rgba(0, 0, 0, 0.3);
+    z-index: 100;
 }
 
+/* القائمة - بقيت مرنة */
+.sidebar_ul {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    /* مسافة بين العناصر */
+    padding: 0 10px;
+    list-style: none;
+}
 
+/* كل عنصر في القائمة */
+.sidebar_ul li {
+    display: flex;
+    align-items: center;
+    padding: 10px 12px;
+    border-radius: 12px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    width: 100%;
+    white-space: nowrap;
+}
+
+/* زرار التبديل (الهامبرجر) */
+.sidebar_button {
+    margin-bottom: 30px;
+    justify-content: center;
+}
 
 .sidebar_button button {
     color: #fff;
-}
-
-.sidebar li:hover {
-    background-color: rgb(42, 66, 89);
-    max-width: fit-content;
+    font-size: 26px !important;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
     border-radius: 8px;
+    transition: background 0.2s;
 }
 
+.sidebar_button button:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
 
-
-.sidebar_ul {
-    height: 100vh;
-    width: 100%;
+/* باقي عناصر القائمة */
+.sidebar_ul li a {
     display: flex;
-    flex-direction: column;
-    list-style: none;
-    gap: 60px;
-    font-size: 25px;
-    position: relative;
     align-items: center;
+    gap: 15px;
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    font-size: 1.1rem;
+    width: 100%;
+    transition: color 0.2s;
 }
 
+.sidebar_ul li:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: scale(1.02);
+    /* تأثير بسيط عند المرور */
+}
+
+.sidebar_ul li:hover a {
+    color: #ffffff;
+}
+
+/* الأيقونة - بقيت بحجم ثابت وجميل */
+.sidebar_ul li i {
+    font-size: 1.4rem;
+    min-width: 24px;
+    text-align: center;
+}
+
+/* النص - بيتحكم فيه بالكود عادي */
 .sidebar span {
     display: none;
-    padding: 5px;
+    /* هياخد القيمة من JavaScript */
+    padding: 5px 0;
+    font-weight: 500;
 }
 
+/* اللوجوت في الآخر */
 .logout {
-    position: absolute;
-    bottom: 20px;
-}
-
-.sidebar_ul li {
-    width: fit-content;
-    transition: all 0.3s ease-in-out;
-    padding: 5px;
+    margin-top: auto;
+    /* يزق اللوجوت تحت */
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 15px;
 }

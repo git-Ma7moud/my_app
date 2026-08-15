@@ -31,7 +31,7 @@ const Content = () => {
 			text.innerHTML = inputRef.current.value;
 
 			const del = document.createElement("button");
-			del.className = "del";
+			del.className = styles.del;
 			del.innerText = "del";
 			del.onclick = function (e) {
 				e.preventDefault();

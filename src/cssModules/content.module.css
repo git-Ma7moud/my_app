@@ -1,73 +1,117 @@
-* {
-    font-family: serif;
-}
-
-
-
+/* ===== content.module.css ===== */
 .content_container {
-    margin: 10px;
-    height: 100%;
-    width: 100%;
-    border-radius: 20px;
-    display: flex;
-    justify-content: flex-start;
-    background-color: rgb(234, 234, 234);
-    align-items: center;
-    font-size: 25px;
+    flex: 1;
+    padding: 25px 30px;
+    background: #f4f6f9;
+    border-radius: 30px 30px 0 0;
+    margin: 15px 20px 20px 20px;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.05);
     display: flex;
     flex-direction: column;
+    overflow-y: auto;
 }
 
-.content_container button {
-    height: 50px;
-    width: 100px;
-    margin: 10px;
-    border-radius: 10px;
-    background-color: rgb(255, 140, 0);
-    color: aliceblue;
+/* الفورم */
+form {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+form input {
+    flex: 1;
+    min-width: 200px;
+    padding: 15px 25px;
+    border: 2px solid #e0e0e0;
+    border-radius: 50px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+form input:focus {
+    border-color: #4a2c20;
+    box-shadow: 0 4px 15px rgba(74, 44, 32, 0.15);
+}
+
+form button {
+    padding: 15px 40px;
+    background: linear-gradient(135deg, #5C4033, #3d2a20);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
     cursor: pointer;
-    font-size: 25px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(92, 64, 51, 0.3);
+    white-space: nowrap;
 }
 
-input {
-    height: 50px;
-    margin: 10px;
-    width: 500px;
-    border-radius: 15px;
-    font-size: 1.6rem;
-
+form button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(92, 64, 51, 0.4);
 }
 
-
-.cliked {
+/* حاوية المهام */
+.tasks_container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 5px;
+    background: transparent;
     width: 100%;
+}
+
+/* كل مهمة */
+.cliked {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-left: 10px;
-    padding-right: 10px;
+    background: white;
+    padding: 15px 25px;
+    border-radius: 16px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    animation: slideUp 0.3s ease;
+    border-left: 5px solid #5C4033;
 }
 
-form {
-    display: flex;
-    width: 100%;
-    justify-content: center;
+.cliked span {
+    font-size: 1.1rem;
+    color: #1a1a1a;
+    word-break: break-word;
 }
 
+/* زرار الحذف */
 .del {
-    background-color: #dd0000;
-    color: aliceblue;
-    height: 30px;
-    width: 70px;
-    display: flex;
-    justify-content: center;
+    background: #ff4757;
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
 }
 
-.tasks_container {
-    background-color: rgb(253, 220, 176);
-    width: 100%;
-    flex-direction: column;
-    align-items: center;
-    display: flex;
-    justify-content: center;
+.del:hover {
+    background: #c0392b;
+    transform: scale(1.05);
+}
+
+/* أنيميشن بسيط */
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
