@@ -77,13 +77,12 @@ form button:hover {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
     animation: slideUp 0.3s ease;
     border-left: 5px solid #5C4033;
-}
-
-.cliked span {
-    font-size: 1.1rem;
     color: #1a1a1a;
+    font-size: 1.1rem;
     word-break: break-word;
 }
+
+
 
 /* زرار الحذف */
 .del {

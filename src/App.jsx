@@ -1,18 +1,7 @@
-import Header from "./components/header/header";
-import Sidebar from "./components/sidebar/Sidebar";
-import "./App.css";
-import Content from "./components/content/Content";
+import AddTask from "./UI/AddTask";
 
 const App = () => {
-	return (
-		<div className='container'>
-			<Sidebar></Sidebar>
-			<div className='page-container'>
-				<Header></Header>
-				<Content></Content>
-			</div>
-		</div>
-	);
+	return <AddTask></AddTask>;
 };
 
 export default App;

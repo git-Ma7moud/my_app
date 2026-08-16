@@ -24,11 +24,9 @@ const Sidebar = () => {
 			if (active) {
 				sidebarRef.current.style.width = "200px";
 				hidenSpanHandel("inline-block");
-				console.log("avtive is true");
 			} else {
 				sidebarRef.current.style.width = "60px";
 				hidenSpanHandel("none");
-				console.log("active is false");
 			}
 		}
 	};

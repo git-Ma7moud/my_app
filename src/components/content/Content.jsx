@@ -1,68 +1,52 @@
-import { useRef, useEffect } from "react";
 import styles from "../../cssModules/content.module.css";
+import { useDispatch, useSelector } from "react-redux";
+import { addTask, deleteTask } from "../../RTK/TasksSlice";
+import { useState } from "react";
+
 const Content = () => {
-	const reatchDel = () => {
-		const del = document.querySelectorAll(".del");
-		del.forEach((e) => {
-			e.onclick = function () {
-				e.parentElement.remove();
-				localStorage.clear();
-				localStorage.setItem("tasks", taskContainerRef.current.innerHTML);
-			};
-		});
+	const dispatch = useDispatch();
+	const tasks = useSelector((state) => state.tasks.tasks); // ← جلب المصفوفة
+	const [inputValue, setInputValue] = useState("");
+
+	const handleAddTask = () => {
+		if (!inputValue.trim()) return;
+		dispatch(addTask(inputValue)); // ← إرسال نص المهمة
+		setInputValue("");
 	};
 
-	const taskContainerRef = useRef(null);
-	const inputRef = useRef(null);
-
-	useEffect(() => {
-		if (localStorage.getItem("tasks")) {
-			taskContainerRef.current.innerHTML = localStorage.getItem("tasks");
-			reatchDel();
-		}
-	}, []);
-
-	const subButton = (e) => {
-		e.preventDefault();
-		if (inputRef.current.value) {
-			const cliked = document.createElement("div");
-			cliked.className = styles.cliked;
-			const text = document.createElement("span");
-			text.innerHTML = inputRef.current.value;
-
-			const del = document.createElement("button");
-			del.className = styles.del;
-			del.innerText = "del";
-			del.onclick = function (e) {
-				e.preventDefault();
-				del.parentElement.remove();
-				localStorage.clear();
-				localStorage.setItem("tasks", taskContainerRef.current.innerHTML);
-			};
-
-			cliked.appendChild(text);
-			cliked.appendChild(del);
-			taskContainerRef.current.appendChild(cliked);
-			localStorage.setItem("tasks", taskContainerRef.current.innerHTML);
-			inputRef.current.value = "";
-		}
+	const handleDeleteTask = (taskId) => {
+		dispatch(deleteTask(taskId)); // ← إرسال ID المهمة
 	};
 	return (
 		<div className={styles.content_container}>
 			<form>
 				<input
 					type='text'
-					ref={inputRef}
+					value={inputValue}
+					onChange={(e) => setInputValue(e.target.value)}
+					placeholder='add task'
 				/>
 				<button
-					type='submit'
-					onClick={subButton}>
+					onClick={handleAddTask}
+					type='submit'>
 					Add Task
 				</button>
 			</form>
-			<div
-				className={styles.tasks_container}
-				ref={taskContainerRef}></div>
+			<div className={styles.tasks_container}>
+				{tasks.map((task) => (
+					<div key={task.id}>
+						<span className={styles.cliked}>
+							{task.title}
+							<button
+								className={styles.del}
+								onClick={() => handleDeleteTask(task.id)}>
+								Delete
+							</button>
+						</span>{" "}
+						{/* ← عرض نص المهمة */}
+					</div>
+				))}
+			</div>
 		</div>
 	);
 };

@@ -30,16 +30,18 @@
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 40px;
     /* مسافة بين العناصر */
     padding: 0 10px;
     list-style: none;
+    align-items: center;
 }
 
 /* كل عنصر في القائمة */
 .sidebar_ul li {
     display: flex;
     align-items: center;
+    justify-content: center;
     padding: 10px 12px;
     border-radius: 12px;
     transition: all 0.2s ease;
