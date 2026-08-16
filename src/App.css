@@ -15,27 +15,3 @@ body,
     overflow: hidden;
     /* ← منع أي Scroll غير مرغوب فيه */
 }
-
-body {
-    background: #0d0d0d;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #fff;
-}
-
-.container {
-    display: flex;
-    height: 100vh;
-    /* ← بدل min-height */
-    background: #0d0d0d;
-}
-
-.page_container {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    /* ← بدل min-height */
-    overflow: hidden;
-    /* ← منع Scroll */
-    background: linear-gradient(145deg, #1a1a1a 0%, #0d0d0d 100%);
-}
