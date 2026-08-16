@@ -1,13 +1,17 @@
 /* ===== content.module.css ===== */
 .content_container {
     flex: 1;
-    padding: 25px 30px;
+    padding: 20px 25px;
     background: #f4f6f9;
     border-radius: 30px 30px 0 0;
-    margin: 15px 20px 20px 20px;
+    margin: 10px 15px 0 15px;
     box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.05);
     display: flex;
     flex-direction: column;
+    height: calc(100vh - 20px);
+    /* ← بيحسب الارتفاع المتبقي */
+    overflow: hidden;
+    /* ← منع Scroll من الحاوية الأساسية */
 }
 
 /* الفورم */
@@ -17,6 +21,8 @@ form {
     flex-wrap: wrap;
     justify-content: center;
     margin-bottom: 30px;
+    flex-shrink: 0;
+    /* ← يمنع الفورم من الانكماش */
 }
 
 form input {
@@ -55,14 +61,39 @@ form button:hover {
     box-shadow: 0 8px 25px rgba(92, 64, 51, 0.4);
 }
 
-/* حاوية المهام */
+/* ===== حاوية المهام ===== */
 .tasks_container {
     display: flex;
     flex-direction: column;
     gap: 12px;
-    padding: 5px;
+    padding: 5px 5px 15px 5px;
     background: transparent;
     width: 100%;
+    flex: 1;
+    /* ← ياخد المساحة المتبقية */
+    overflow-y: auto;
+    /* ← Scroll عمودي لو المهام كتير */
+    min-height: 0;
+    /* ← مهم عشان flex يشتغل صح */
+}
+
+/* ===== تخصيص شكل الـ Scroll ===== */
+.tasks_container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.tasks_container::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+}
+
+.tasks_container::-webkit-scrollbar-thumb {
+    background: #5C4033;
+    border-radius: 10px;
+}
+
+.tasks_container::-webkit-scrollbar-thumb:hover {
+    background: #3d2a20;
 }
 
 /* كل مهمة */
@@ -79,9 +110,9 @@ form button:hover {
     color: #1a1a1a;
     font-size: 1.1rem;
     word-break: break-word;
+    flex-shrink: 0;
+    /* ← يمنع المهمة من الانكماش */
 }
-
-
 
 /* زرار الحذف */
 .del {
@@ -94,6 +125,9 @@ form button:hover {
     font-weight: 600;
     cursor: pointer;
     transition: all 0.2s ease;
+    flex-shrink: 0;
+    /* ← يمنع الزرار من الانكماش */
+    margin-left: 15px;
 }
 
 .del:hover {
