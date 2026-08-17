@@ -2,12 +2,10 @@ import styles from "../../cssModules/content.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { addTask } from "../../RTK/TasksSlice";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import ContentContainer from "./features/ContentContainer";
 
 const Content = () => {
 	const dispatch = useDispatch();
-	const navigate = useNavigate();
 	const [inputValue, setInputValue] = useState("");
 	const tasks = useSelector((state) => state.tasks.tasks);
 

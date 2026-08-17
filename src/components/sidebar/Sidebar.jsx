@@ -70,7 +70,7 @@ const Sidebar = () => {
 				</li>
 
 				<li className={styles.logout}>
-					<a href='#log-out-page'>
+					<a href='/'>
 						<i className='fa fa-sign-out-alt'></i>
 						<span>logout</span>
 					</a>
