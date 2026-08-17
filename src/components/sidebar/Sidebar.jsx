@@ -1,16 +1,19 @@
 import styles from "../../cssModules/sidebar.module.css";
 import { FaBars } from "react-icons/fa";
 import { useRef, useState } from "react";
+import { Link } from "react-router-dom"; // ← استخدم Link بدل a
 
 const Sidebar = () => {
 	const [active, setActive] = useState(true);
-	const toggelWidth = () => {
+	const sidebarRef = useRef(null);
+
+	const toggleWidth = () => {
 		setActive((prev) => !prev);
 	};
-	const hidenSpanHandel = (state) => {
+
+	const hideSpanHandle = (state) => {
 		if (sidebarRef.current) {
 			const span = sidebarRef.current.querySelectorAll("ul li span");
-
 			span.forEach((element) => {
 				if (element) {
 					element.style.display = state;
@@ -18,19 +21,20 @@ const Sidebar = () => {
 			});
 		}
 	};
-	const handelClick = () => {
+
+	const handleClick = () => {
 		if (sidebarRef.current) {
-			toggelWidth();
+			toggleWidth();
 			if (active) {
 				sidebarRef.current.style.width = "200px";
-				hidenSpanHandel("inline-block");
+				hideSpanHandle("inline-block");
 			} else {
 				sidebarRef.current.style.width = "60px";
-				hidenSpanHandel("none");
+				hideSpanHandle("none");
 			}
 		}
 	};
-	const sidebarRef = useRef(null);
+
 	return (
 		<div
 			className={styles.sidebar}
@@ -38,42 +42,33 @@ const Sidebar = () => {
 			<ul className={styles.sidebar_ul}>
 				<li
 					className={styles.sidebar_button}
-					onClick={handelClick}>
-					<button
-						style={{
-							fontSize: "24px",
-							background: "none",
-							border: "none",
-							cursor: "pointer",
-						}}>
+					onClick={handleClick}>
+					<button>
 						<FaBars />
 					</button>
 				</li>
+
 				<li className={styles.home}>
-					<a href='#home-page'>
+					<Link to='/'>
 						<i className='fa fa-home'></i>
 						<span>home</span>
-					</a>
+					</Link>
 				</li>
 
 				<li className={styles.posts}>
-					<a href='#posts-page'>
+					<Link to='/tasks'>
 						<i className='fa fa-file-alt'></i>
 						<span>tasks</span>
-					</a>
+					</Link>
 				</li>
-				<li className={styles.favourite}>
-					<a href='#fav-page'>
-						<i className='fa fa-star'></i>
-						<span>favourites</span>
-					</a>
-				</li>
+
 				<li className={styles.settings}>
-					<a href='#settings-page'>
-						<i className='fa fa-cog'></i>
-						<span>settings</span>
-					</a>
+					<Link to='/add-task'>
+						<i className='fa fa-plus-circle'></i>
+						<span>add task</span>
+					</Link>
 				</li>
+
 				<li className={styles.logout}>
 					<a href='#log-out-page'>
 						<i className='fa fa-sign-out-alt'></i>

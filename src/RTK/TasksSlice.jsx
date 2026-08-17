@@ -12,7 +12,7 @@ const TasksSlice = createSlice({
 			const newTask = {
 				id: Date.now(), // ID فريد
 				title: action.payload, // نص المهمة
-				favourite: false,
+				fav: false,
 				stateOfTask: "in progress",
 			};
 			state.tasks.push(newTask);

@@ -1,4 +1,4 @@
-/* ===== content.module.css ===== */
+/* ===== صفحة إضافة المهمة ===== */
 .content_container {
     flex: 1;
     padding: 20px 25px;
@@ -12,51 +12,85 @@
     overflow: hidden;
 }
 
-/* ===== الفورم ===== */
-form {
-    display: flex;
-    gap: 15px;
-    flex-wrap: wrap;
-    justify-content: center;
+.add_task_title {
+    color: #2c1810;
+    font-size: 2rem;
     margin-bottom: 30px;
-    flex-shrink: 0;
+    text-align: center;
 }
 
-form input {
-    flex: 1;
-    min-width: 200px;
-    padding: 15px 25px;
-    border: 2px solid #e0e0e0;
-    border-radius: 50px;
-    font-size: 1rem;
+.add_task_form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+    flex-shrink: 0;
+    /* ← يمنع الفورم من الانكماش */
+}
+
+.add_task_input {
+    width: 100%;
+    padding: 25px 30px;
+    font-size: 1.5rem;
+    border: 3px solid #e0e0e0;
+    border-radius: 20px;
+    outline: none;
     transition: all 0.3s ease;
     background: white;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-    outline: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    min-height: 80px;
+    color: #1a1a1a;
 }
 
-form input:focus {
-    border-color: #4a2c20;
-    box-shadow: 0 4px 15px rgba(74, 44, 32, 0.15);
+.add_task_input:focus {
+    border-color: #5C4033;
+    box-shadow: 0 4px 30px rgba(92, 64, 51, 0.15);
 }
 
-form button {
-    padding: 15px 40px;
+.add_task_input::placeholder {
+    color: #aaa;
+    font-size: 1.2rem;
+}
+
+.add_task_submit {
+    padding: 18px 60px;
     background: linear-gradient(135deg, #5C4033, #3d2a20);
     color: white;
     border: none;
     border-radius: 50px;
-    font-size: 1rem;
+    font-size: 1.3rem;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(92, 64, 51, 0.3);
-    white-space: nowrap;
+    box-shadow: 0 4px 20px rgba(92, 64, 51, 0.3);
+    width: fit-content;
 }
 
-form button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(92, 64, 51, 0.4);
+.add_task_submit:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 35px rgba(92, 64, 51, 0.4);
+}
+
+/* ===== معاينة المهام في صفحة الإضافة ===== */
+.preview_section {
+    width: 100%;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 2px solid rgba(0, 0, 0, 0.06);
+    flex: 1;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.preview_title {
+    color: #2c1810;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    font-weight: 500;
 }
 
 /* ===== حاوية المهام ===== */
@@ -70,25 +104,6 @@ form button:hover {
     flex: 1;
     overflow-y: auto;
     min-height: 0;
-}
-
-/* ===== تخصيص شكل الـ Scroll ===== */
-.tasks_container::-webkit-scrollbar {
-    width: 8px;
-}
-
-.tasks_container::-webkit-scrollbar-track {
-    background: rgba(0, 0, 0, 0.05);
-    border-radius: 10px;
-}
-
-.tasks_container::-webkit-scrollbar-thumb {
-    background: #5C4033;
-    border-radius: 10px;
-}
-
-.tasks_container::-webkit-scrollbar-thumb:hover {
-    background: #3d2a20;
 }
 
 /* ===== كل مهمة ===== */
@@ -223,6 +238,20 @@ form button:hover {
 
 .del:active {
     transform: scale(0.95);
+}
+
+/* ===== حالة عدم وجود مهام ===== */
+.empty_state {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    color: rgba(0, 0, 0, 0.3);
+    font-size: 1.2rem;
+    font-weight: 300;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 16px;
+    border: 2px dashed rgba(0, 0, 0, 0.08);
 }
 
 /* ===== أنيميشن ظهور المهمة ===== */
