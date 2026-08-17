@@ -8,7 +8,8 @@ const Content = () => {
 	const dispatch = useDispatch();
 	const [inputValue, setInputValue] = useState("");
 
-	const handleAddTask = () => {
+	const handleAddTask = (e) => {
+		e.preventDefault();
 		if (!inputValue.trim()) return;
 		dispatch(addTask(inputValue)); // ← إرسال نص المهمة
 		setInputValue("");

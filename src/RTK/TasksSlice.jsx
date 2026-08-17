@@ -12,6 +12,8 @@ const TasksSlice = createSlice({
 			const newTask = {
 				id: Date.now(), // ID فريد
 				title: action.payload, // نص المهمة
+				favourite: false,
+				stateOfTask: "in progress",
 			};
 			state.tasks.push(newTask);
 		},
@@ -19,8 +21,26 @@ const TasksSlice = createSlice({
 			// action.payload = ID المهمة المطلوب حذفها
 			state.tasks = state.tasks.filter((task) => task.id !== action.payload);
 		},
+		fav: (state, action) => {
+			const { id, value } = action.payload;
+			state.tasks = state.tasks.map((task) => {
+				if (task.id === id) {
+					return { ...task, fav: value };
+				}
+				return task;
+			});
+		},
+		taskState: (state, action) => {
+			const { id, value } = action.payload;
+			state.tasks = state.tasks.map((task) => {
+				if (task.id === id) {
+					return { ...task, stateOfTask: value };
+				}
+				return task;
+			});
+		},
 	},
 });
 
-export const { addTask, deleteTask } = TasksSlice.actions;
+export const { addTask, deleteTask, fav, taskState } = TasksSlice.actions;
 export default TasksSlice.reducer;

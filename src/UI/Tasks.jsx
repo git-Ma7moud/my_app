@@ -1,4 +1,4 @@
-import ContentContainer from "../components/content/features/ContentContainer";
+import Content from "../components/content/Content";
 import Header from "../components/header/header";
 import Sidebar from "../components/sidebar/Sidebar";
 import styles from "../cssModules/home.module.css";
@@ -10,7 +10,7 @@ const Tasks = () => {
 				<Sidebar></Sidebar>
 				<div className={styles.page_container}>
 					<Header></Header>
-					<ContentContainer></ContentContainer>
+					<Content></Content>
 				</div>
 			</div>
 		</>

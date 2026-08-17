@@ -9,12 +9,10 @@
     display: flex;
     flex-direction: column;
     height: calc(100vh - 20px);
-    /* ← بيحسب الارتفاع المتبقي */
     overflow: hidden;
-    /* ← منع Scroll من الحاوية الأساسية */
 }
 
-/* الفورم */
+/* ===== الفورم ===== */
 form {
     display: flex;
     gap: 15px;
@@ -22,7 +20,6 @@ form {
     justify-content: center;
     margin-bottom: 30px;
     flex-shrink: 0;
-    /* ← يمنع الفورم من الانكماش */
 }
 
 form input {
@@ -35,6 +32,7 @@ form input {
     transition: all 0.3s ease;
     background: white;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    outline: none;
 }
 
 form input:focus {
@@ -70,11 +68,8 @@ form button:hover {
     background: transparent;
     width: 100%;
     flex: 1;
-    /* ← ياخد المساحة المتبقية */
     overflow-y: auto;
-    /* ← Scroll عمودي لو المهام كتير */
     min-height: 0;
-    /* ← مهم عشان flex يشتغل صح */
 }
 
 /* ===== تخصيص شكل الـ Scroll ===== */
@@ -96,7 +91,7 @@ form button:hover {
     background: #3d2a20;
 }
 
-/* كل مهمة */
+/* ===== كل مهمة ===== */
 .cliked {
     display: flex;
     justify-content: space-between;
@@ -111,23 +106,114 @@ form button:hover {
     font-size: 1.1rem;
     word-break: break-word;
     flex-shrink: 0;
-    /* ← يمنع المهمة من الانكماش */
+    gap: 15px;
+    transition: all 0.2s ease;
 }
 
-/* زرار الحذف */
+.cliked:hover {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+/* ===== عنوان المهمة ===== */
+.task_title {
+    flex: 1;
+    font-size: 1.1rem;
+    color: #1a1a1a;
+    font-weight: 500;
+}
+
+/* ===== مجموعة الأزرار ===== */
+.task_actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+/* ===== زرار القلب ===== */
+.fav_btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 5px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    color: #ccc;
+}
+
+.fav_btn:hover {
+    transform: scale(1.2);
+    background: rgba(255, 0, 0, 0.05);
+}
+
+.fav_btn:active {
+    transform: scale(0.9);
+}
+
+.fav_btn.fav_active {
+    color: #ff0000;
+    animation: heartPop 0.3s ease;
+}
+
+/* ===== أنيميشن القلب ===== */
+@keyframes heartPop {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.4);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* ===== الـ Select ===== */
+.task_select {
+    padding: 8px 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    background: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #1a1a1a;
+    outline: none;
+    font-weight: 500;
+    min-width: 120px;
+}
+
+.task_select:focus {
+    border-color: #5C4033;
+    box-shadow: 0 0 0 3px rgba(92, 64, 51, 0.1);
+}
+
+.task_select:hover {
+    border-color: #5C4033;
+}
+
+/* ===== زرار الحذف ===== */
 .del {
     background: #ff4757;
     color: white;
     border: none;
     padding: 8px 20px;
     border-radius: 50px;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.2s ease;
     flex-shrink: 0;
-    /* ← يمنع الزرار من الانكماش */
-    margin-left: 15px;
+    white-space: nowrap;
 }
 
 .del:hover {
@@ -135,7 +221,11 @@ form button:hover {
     transform: scale(1.05);
 }
 
-/* أنيميشن بسيط */
+.del:active {
+    transform: scale(0.95);
+}
+
+/* ===== أنيميشن ظهور المهمة ===== */
 @keyframes slideUp {
     from {
         opacity: 0;
