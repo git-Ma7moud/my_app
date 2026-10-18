@@ -1,8 +1,11 @@
 import styles from "../../../cssModules/content.module.css";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { deleteTask, fav, taskState } from "../../../RTK/TasksSlice";
 
-const ContentContainer = ({ tasks = [] }) => {
+const ContentContainer = () => {
+	const tasks = useSelector((state) => state.tasks.tasks);
+
+
 	const dispatch = useDispatch();
 
 	const handleFav = (taskId, value) => {
@@ -19,6 +22,7 @@ const ContentContainer = ({ tasks = [] }) => {
 
 	// لو مفيش مهام
 	if (!tasks || tasks.length === 0) {
+		console.log("worked")
 		return (
 			<div className={styles.tasks_container}>
 				<div className={styles.empty_state}>

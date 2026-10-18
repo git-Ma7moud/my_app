@@ -13,8 +13,6 @@ const AddTask = () => {
 				<Header />
 				<Content />
 			</div>
-		</div>
-	);
+		</div>);
 };
-
 export default AddTask;

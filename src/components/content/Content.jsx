@@ -1,5 +1,5 @@
 import styles from "../../cssModules/content.module.css";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { addTask } from "../../RTK/TasksSlice";
 import { useState } from "react";
 import ContentContainer from "./features/ContentContainer";
@@ -7,7 +7,6 @@ import ContentContainer from "./features/ContentContainer";
 const Content = () => {
 	const dispatch = useDispatch();
 	const [inputValue, setInputValue] = useState("");
-	const tasks = useSelector((state) => state.tasks.tasks);
 
 	const handleAddTask = (e) => {
 		e.preventDefault(); // ← أهم شيء: منع إعادة تحميل الصفحة
@@ -46,7 +45,7 @@ const Content = () => {
 			{/* عرض المهام في صفحة الإضافة */}
 			<div className={styles.preview_section}>
 				<h3 className={styles.preview_title}>📋 Your Tasks</h3>
-				<ContentContainer tasks={tasks} />
+				<ContentContainer />
 			</div>
 		</div>
 	);
