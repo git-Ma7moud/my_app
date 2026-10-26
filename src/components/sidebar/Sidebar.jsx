@@ -48,33 +48,34 @@ const Sidebar = () => {
 					</button>
 				</li>
 
-				<li className={styles.home}>
-					<Link to='/'>
+				<Link to='/'>
+					<li className={styles.home}>
 						<i className='fa fa-home'></i>
 						<span>home</span>
-					</Link>
-				</li>
+					</li>
+				</Link>
 
-				<li className={styles.posts}>
-					<Link to='/tasks'>
+				<Link to='/tasks'>
+					<li className={styles.posts}>
 						<i className='fa fa-file-alt'></i>
 						<span>tasks</span>
-					</Link>
-				</li>
+					</li>
+				</Link>
 
-				<li className={styles.settings}>
-					<Link to='/add-task'>
+				<Link to='/add-task'>
+					<li className={styles.settings}>
 						<i className='fa fa-plus-circle'></i>
 						<span>add task</span>
-					</Link>
-				</li>
-
-				<li className={styles.logout}>
-					<a href='/'>
+					</li>
+				</Link>
+				<Link
+					className={styles.logout}
+					to='/'>
+					<li >
 						<i className='fa fa-sign-out-alt'></i>
 						<span>logout</span>
-					</a>
-				</li>
+					</li>
+				</Link>
 			</ul>
 		</div>
 	);

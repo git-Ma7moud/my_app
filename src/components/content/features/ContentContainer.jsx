@@ -1,10 +1,12 @@
 import styles from "../../../cssModules/content.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteTask, fav, taskState } from "../../../RTK/TasksSlice";
+import { useSearchParams } from "react-router-dom";
 
 const ContentContainer = () => {
 	const tasks = useSelector((state) => state.tasks.tasks);
 
+	const [searchParams] = useSearchParams()
 
 	const dispatch = useDispatch();
 
@@ -16,13 +18,14 @@ const ContentContainer = () => {
 		dispatch(taskState({ id: taskId, value }));
 	};
 
+	const filteredTasks = searchParams.get("t") ? tasks.filter((element) => element.title === searchParams.get("t")) : tasks;
+
 	const handleDeleteTask = (taskId) => {
 		dispatch(deleteTask(taskId));
 	};
 
 	// لو مفيش مهام
 	if (!tasks || tasks.length === 0) {
-		console.log("worked")
 		return (
 			<div className={styles.tasks_container}>
 				<div className={styles.empty_state}>
@@ -34,7 +37,7 @@ const ContentContainer = () => {
 
 	return (
 		<div className={styles.tasks_container}>
-			{tasks.map((task) => (
+			{filteredTasks.map((task) => (
 				<div
 					key={task.id}
 					className={styles.cliked}>

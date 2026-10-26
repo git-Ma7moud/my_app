@@ -1,8 +1,10 @@
 import { FaSearch } from "react-icons/fa";
 import styles from "../../cssModules/header.module.css";
+import { useSearchParams } from "react-router-dom";
 
 // ✅ تأكد من أسماء الـ props
 const Header = () => {
+	const [, setSearchParams] = useSearchParams()
 	return (
 		<ul className={styles.header_container}>
 			<li className={styles.search_bar}>
@@ -12,7 +14,7 @@ const Header = () => {
 					className={styles.search_input}
 					placeholder='Search tasks...'
 					onChange={(e) => {
-						console.log("🔍 Searching:", e.target.value);
+						setSearchParams({ t: e.target.value })
 					}}
 				/>
 			</li>

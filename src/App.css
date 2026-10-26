@@ -13,5 +13,6 @@ body,
     margin: 0;
     padding: 0;
     overflow: hidden;
+    text-decoration: none;
     /* ← منع أي Scroll غير مرغوب فيه */
 }
