@@ -63,6 +63,9 @@
 .header_select_wrapper {
     position: relative;
     flex-shrink: 0;
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
 }
 
 .header_select {
@@ -170,4 +173,86 @@
         font-size: 0.95rem;
         margin-right: 8px;
     }
+}
+
+/* ===== Date Sort Button ===== */
+.header_sort_date {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    width: 46px;
+    height: 42px;
+    padding: 0;
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.header_sort_date:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.25);
+    transform: translateY(-2px);
+}
+
+.header_sort_date svg {
+    font-size: 13px;
+    transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.active_arrow {
+    color: #60a5fa;
+}
+
+.inactive_arrow {
+    color: rgba(255, 255, 255, 0.25);
+}
+
+.sort_oldest .active_arrow {
+    color: #fbbf24;
+}
+
+/* ===== Favorite Button ===== */
+.header_sort_fav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 17px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.header_sort_fav:hover {
+    color: #fb7185;
+    background: rgba(251, 113, 133, 0.1);
+    border-color: rgba(251, 113, 133, 0.3);
+    transform: translateY(-2px);
+}
+
+.fav_active {
+    color: #fb7185;
+    background: rgba(251, 113, 133, 0.15);
+    border-color: rgba(251, 113, 133, 0.4);
+    box-shadow: 0 0 12px rgba(251, 113, 133, 0.12);
+}
+
+.fav_active:hover {
+    color: #fda4af;
+    background: rgba(251, 113, 133, 0.22);
+}
+
+/* ===== Focus Accessibility ===== */
+.header_sort_date:focus-visible,
+.header_sort_fav:focus-visible {
+    outline: 2px solid #60a5fa;
+    outline-offset: 3px;
 }

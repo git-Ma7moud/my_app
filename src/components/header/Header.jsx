@@ -2,6 +2,7 @@ import { FaSearch } from "react-icons/fa";
 import styles from "../../cssModules/header.module.css";
 import { useSearchParams } from "react-router-dom";
 import { useState } from "react";
+import { FaArrowDown, FaArrowUp, FaHeart } from "react-icons/fa";
 
 
 
@@ -89,20 +90,22 @@ const Header = () => {
 
 			<li className={styles.header_select_wrapper}>
 				<button
-					className={styles.header_sort_date}
-					onClick={() => {
-						handelSort()
-					}}
+					className={`${styles.header_sort_date} ${isON ? styles.sort_oldest : styles.sort_latest}`}
+					onClick={handelSort}
+					title={isON ? "Sort: Oldest first" : "Sort: Latest first"}
+					aria-label="Toggle date sorting"
 				>
-					NOT THERE YET !
+					<FaArrowDown className={isON ? styles.active_arrow : styles.inactive_arrow} />
+					<FaArrowUp className={!isON ? styles.active_arrow : styles.inactive_arrow} />
 				</button>
+
 				<button
-					className={styles.header_sort_fav}
-					onClick={() => {
-						favHandel()
-					}}
+					className={`${styles.header_sort_fav} ${isONFav ? styles.fav_active : ""}`}
+					onClick={() => favHandel()}
+					title={isONFav ? "Show all tasks" : "Show favorite tasks"}
+					aria-label="Toggle favorite tasks"
 				>
-					{isONFav ? "❤️" : "🤍"}
+					<FaHeart />
 				</button>
 				<select
 					className={styles.header_select}
@@ -110,7 +113,6 @@ const Header = () => {
 						selectionHandel(e.target.value);
 					}}>
 					<option value='...'> ....</option>
-					{/* <option value='favourites'>⭐ Favourites</option> */}
 					<option value='in progress'>in progress</option>
 					<option value='finished!'>✅ finished!</option>
 					<option value='later...'>⏰ later...</option>
