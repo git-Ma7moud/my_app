@@ -7,6 +7,7 @@ const ContentContainer = () => {
 	const tasks = useSelector((state) => state.tasks.tasks);
 
 	const [searchParams] = useSearchParams()
+	console.log(...searchParams)
 
 	const dispatch = useDispatch();
 
@@ -18,7 +19,49 @@ const ContentContainer = () => {
 		dispatch(taskState({ id: taskId, value }));
 	};
 
-	const filteredTasks = searchParams.get("t") ? tasks.filter((element) => element.title === searchParams.get("t")) : tasks;
+	const filteredTasks = () => {
+		let result = [...tasks];
+
+		if (searchParams.get("t")) {
+			result = result.filter(
+				(task) => task.title === searchParams.get("t")
+			);
+		}
+
+		if (searchParams.get("f") === "fav") {
+			result = result.filter(
+				(task) => task.fav === true
+			);
+		}
+		if (searchParams.get("s") === "inprog") {
+			result = result.filter(
+				(task) => {
+					return task.stateOfTask === "in progress"
+				}
+			);
+		}
+		if (searchParams.get("s") === "finished!") {
+			result = result.filter(
+				(task) => task.stateOfTask === "finished!"
+			);
+		}
+		if (searchParams.get("s") === "later...") {
+			result = result.filter(
+				(task) => task.stateOfTask === "later..."
+			);
+		}
+
+		if (searchParams.get("d") === "Latest") {
+			result = result.sort((a, b) => b.id - a.id);
+		}
+
+		if (searchParams.get("d") === "Oldest") {
+			result = result.sort((a, b) => a.id - b.id);
+		}
+
+		return result;
+	};
+	console.log(filteredTasks())
 
 	const handleDeleteTask = (taskId) => {
 		dispatch(deleteTask(taskId));
@@ -37,7 +80,7 @@ const ContentContainer = () => {
 
 	return (
 		<div className={styles.tasks_container}>
-			{filteredTasks.map((task) => (
+			{filteredTasks().map((task) => (
 				<div
 					key={task.id}
 					className={styles.cliked}>
