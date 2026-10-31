@@ -29,7 +29,7 @@ const Header = () => {
 
 	}
 
-	const favHandel = (ele) => {
+	const favHandel = () => {
 		if (isONFav) {
 			setIsOnFav((prev) => !prev)
 			setSearchParams((prev) => {
@@ -83,7 +83,10 @@ const Header = () => {
 					className={styles.search_input}
 					placeholder='Search tasks...'
 					onChange={(e) => {
-						setSearchParams({ t: e.target.value })
+						setSearchParams((prev) => {
+							prev.set("t", e.target.value)
+							return prev;
+						})
 					}}
 				/>
 			</li>
