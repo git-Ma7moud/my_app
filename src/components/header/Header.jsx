@@ -103,7 +103,7 @@ const Header = () => {
 				</button>
 
 				<button
-					className={`${styles.header_sort_fav} ${isONFav ? styles.fav_active : ""}`}
+					className={`${styles.header_sort_fav} ${!isONFav ? styles.fav_active : ""}`}
 					onClick={() => favHandel()}
 					title={isONFav ? "Show all tasks" : "Show favorite tasks"}
 					aria-label="Toggle favorite tasks"
